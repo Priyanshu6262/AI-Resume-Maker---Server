@@ -1,0 +1,21 @@
+# Environment variables - NEVER commit these
+.env
+.env.local
+.env.production
+.env.*
+
+# Dependencies
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Runtime data
+pids/
+*.pid
+
+# Build output
+dist/
+build/
