@@ -8,14 +8,12 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ─── CORS ─────────────────────────────────────────────────────────────────────
 const allowedOrigins = [
     'http://localhost:5173',
     'http://localhost:3000',
-    // Add your Vercel frontend URL here after deployment, e.g.:
-    // 'https://your-frontend.vercel.app'
-    process.env.CLIENT_URL, // set this in Render environment variables
-].filter(Boolean); // removes undefined if CLIENT_URL is not set
+    'https://ai-resume-maker-created-by-priyansh.vercel.app'
+];
+
 
 app.use(cors({
     origin: (origin, callback) => {
@@ -44,7 +42,7 @@ app.get('/', (req, res) => {
 });
 
 // ─── ROUTES ───────────────────────────────────────────────────────────────────
-app.use('/api/auth',    require('./routes/authRoutes'));
+app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/resumes', require('./routes/resumeRoutes'));
 app.use('/api/enhance', require('./routes/enhanceRoutes'));
 
